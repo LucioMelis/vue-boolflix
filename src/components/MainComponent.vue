@@ -1,5 +1,7 @@
 <template>
-  <div>Ciao Main</div>
+  <main>
+    <div class="container-main"></div>
+  </main>
 </template>
 
 <script>
@@ -10,4 +12,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+.container-main {
+  height: 100vh;
+  background-image: url("@/assets/netflix-image.png");
+}
 </style>
