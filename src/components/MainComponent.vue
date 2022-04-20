@@ -1,12 +1,25 @@
 <template>
   <main>
-    <div class="container-main"></div>
+    <div class="container-main">
+      <h2>Film</h2>
+      <div class="container-film">
+        <div v-for="(film, index) in film" :key="index">
+          <h1>Ciao</h1>
+        </div>
+      </div>
+      <h2>Serie Tv</h2>
+      <div class="container-Serie"></div>
+    </div>
   </main>
 </template>
 
 <script>
 export default {
   name: "MainComponent",
+  props: {
+    serieTv: Array,
+    film: Array,
+  },
 };
 </script>
 
@@ -15,5 +28,9 @@ export default {
 .container-main {
   height: 100vh;
   background-image: url("@/assets/netflix-image.png");
+  h2 {
+    color: red;
+    text-align: center;
+  }
 }
 </style>

@@ -5,8 +5,13 @@
         <img src="@/assets/Logonetflix.png" alt="Logo" />
       </div>
       <div class="container-input">
-        <input type="text" placeholder="Ricerca Film-Serie Tv" />
-        <button>Cerca</button>
+        <input
+          type="text"
+          placeholder="Ricerca Film-Serie Tv"
+          v-model="ricercaUtente"
+          @keyup.enter="$emit('ricercaInserita', ricercaUtente)"
+        />
+        <button @click="$emit('ricercaInserita', ricercaUtente)">Cerca</button>
       </div>
     </div>
   </header>
@@ -15,6 +20,11 @@
 <script>
 export default {
   name: "HeaderComponent",
+  data() {
+    return {
+      ricercaUtente: "",
+    };
+  },
 };
 </script>
 
