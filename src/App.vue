@@ -41,7 +41,7 @@ export default {
           .then((response) => {
             // console.log(response.data.results);
             this.arraySerieTv = response.data.results;
-            // console.log(this.arraySerieTv);
+            console.log(this.arraySerieTv);
           })
           .catch((error) => {
             console.log(error);
@@ -52,7 +52,7 @@ export default {
           .then((response) => {
             // console.log(response.data.results);
             this.arrayFilm = response.data.results;
-            // console.log(this.arrayFilm);
+            console.log(this.arrayFilm);
           })
           .catch((error) => {
             console.log(error);

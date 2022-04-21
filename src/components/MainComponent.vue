@@ -3,24 +3,29 @@
     <div class="container-main">
       <h2>Film</h2>
       <div class="container-film">
-        <div v-for="(film, index) in film" :key="index">
-          <!-- devo stampare titolo, titolo originale,lingua,voto -->
-          <h1>Ciao</h1>
-        </div>
+        <FilmComponent />
       </div>
       <h2>Serie Tv</h2>
-      <div class="container-Serie"></div>
+      <div class="container-Serie">
+        <SerieTvComponent />
+      </div>
     </div>
   </main>
 </template>
 
 
 <script>
+import FilmComponent from "@/components/FilmComponent.vue";
+import SerieTvComponent from "@/components/SerieTvComponent.vue";
 export default {
   name: "MainComponent",
   props: {
     serieTv: Array,
     film: Array,
+  },
+  components: {
+    FilmComponent,
+    SerieTvComponent,
   },
 };
 </script>
