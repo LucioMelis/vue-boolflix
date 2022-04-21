@@ -5,6 +5,9 @@
 <script>
 export default {
   name: "FilmComponent",
+  props: {
+    film: Array,
+  },
 };
 </script>
 

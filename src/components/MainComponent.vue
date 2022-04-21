@@ -3,11 +3,11 @@
     <div class="container-main">
       <h2>Film</h2>
       <div class="container-film">
-        <FilmComponent />
+        <FilmComponent :film="film" />
       </div>
       <h2>Serie Tv</h2>
       <div class="container-Serie">
-        <SerieTvComponent />
+        <SerieTvComponent :serieTv="serieTv" />
       </div>
     </div>
   </main>
@@ -33,8 +33,6 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .container-main {
-  height: 100vh;
-  background-image: url("@/assets/netflix-image.png");
   h2 {
     color: red;
     text-align: center;

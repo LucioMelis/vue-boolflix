@@ -5,6 +5,9 @@
 <script>
 export default {
   name: "SerieTvComponent",
+  props: {
+    serieTv: Array,
+  },
 };
 </script>
 
