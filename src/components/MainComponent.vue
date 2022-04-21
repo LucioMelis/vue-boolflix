@@ -1,9 +1,9 @@
 <template>
   <main>
     <div class="container-main">
-      <h1 v-if="film.length > 0">Film</h1>
+      <h1 v-if="film.length > 0">FILM</h1>
       <FilmComponent :film="film" />
-      <h1 v-if="serieTv.length > 0">Serie Tv</h1>
+      <h1 v-if="serieTv.length > 0">SERIE TV</h1>
       <SerieTvComponent :serieTv="serieTv" />
     </div>
   </main>
@@ -33,8 +33,12 @@ main {
   overflow-y: auto;
   .container-main {
     h1 {
-      color: red;
+      color: rgb(218, 5, 5);
+      width: 200px;
+      margin: 5px auto;
       text-align: center;
+      background-color: black;
+      border-radius: 10px;
     }
   }
 }

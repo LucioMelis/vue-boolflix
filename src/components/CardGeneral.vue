@@ -4,7 +4,7 @@
       <img class="poster" :src="ricercaPoster(poster)" :alt="titolo" />
     </div>
     <h2>{{ titolo }}</h2>
-    <h4>Titolo originale: {{ titoloOriginale }}</h4>
+    <p>Titolo originale: {{ titoloOriginale }}</p>
     <p>
       Lingua:
       <img :src="ricercaBandiera(lingua)" :alt="lingua" />
