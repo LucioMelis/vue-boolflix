@@ -1,14 +1,10 @@
 <template>
   <main>
     <div class="container-main">
-      <h2>Film</h2>
-      <div class="container-film">
-        <FilmComponent :film="film" />
-      </div>
-      <h2>Serie Tv</h2>
-      <div class="container-Serie">
-        <SerieTvComponent :serieTv="serieTv" />
-      </div>
+      <h1 v-if="film.length > 0">Film</h1>
+      <FilmComponent :film="film" />
+      <h1 v-if="serieTv.length > 0">Serie Tv</h1>
+      <SerieTvComponent :serieTv="serieTv" />
     </div>
   </main>
 </template>
@@ -32,10 +28,14 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-.container-main {
-  h2 {
-    color: red;
-    text-align: center;
+main {
+  height: calc(100vh - 105px);
+  overflow-y: auto;
+  .container-main {
+    h1 {
+      color: red;
+      text-align: center;
+    }
   }
 }
 </style>
