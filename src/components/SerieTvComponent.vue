@@ -6,6 +6,7 @@
         :titoloOriginale="singoleSerie.original_name"
         :lingua="singoleSerie.original_language"
         :voto="singoleSerie.vote_average"
+        :poster="singoleSerie.poster_path"
       />
     </div>
   </div>

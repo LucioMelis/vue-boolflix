@@ -2,10 +2,11 @@
   <div class="container-components">
     <div class="card" v-for="singoliFilm in film" :key="singoliFilm.id">
       <CardGeneral
-        :title="singoliFilm.title"
+        :titolo="singoliFilm.title"
         :titoloOriginale="singoliFilm.original_title"
         :lingua="singoliFilm.original_language"
         :voto="singoliFilm.vote_average"
+        :poster="singoliFilm.poster_path"
       />
     </div>
   </div>
