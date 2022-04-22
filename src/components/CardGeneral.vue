@@ -1,13 +1,22 @@
 <template>
   <div class="content-card">
     <div>
-      <img class="poster" :src="ricercaPoster(poster)" :alt="titolo" />
+      <img
+        class="poster"
+        :src="ricercaPoster(poster)"
+        :alt="titolo"
+        @error="imgNonTrovata"
+      />
     </div>
     <h2>{{ titolo }}</h2>
     <p>Titolo originale: {{ titoloOriginale }}</p>
     <p>
       Lingua:
-      <img :src="ricercaBandiera(lingua)" :alt="lingua" />
+      <img
+        :src="ricercaBandiera(lingua)"
+        :alt="lingua"
+        @error="bandieraNonTrovata"
+      />
     </p>
     <p>Voto: {{ voto }}</p>
   </div>
@@ -27,6 +36,10 @@ export default {
     ricercaPoster(img) {
       return `https://image.tmdb.org/t/p/original/${img}`;
     },
+    imgNonTrovata(error) {
+      error.target.src =
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/330px-No-Image-Placeholder.svg.png";
+    },
     ricercaBandiera(nomebandiera) {
       if (nomebandiera === "en") {
         return `https://raw.githubusercontent.com/emcrisostomo/flags/91286fe015b4957b51bc470eca4b5fd6f5ac90da/svg/GB.svg`;
@@ -40,6 +53,10 @@ export default {
         return `https://raw.githubusercontent.com/emcrisostomo/flags/91286fe015b4957b51bc470eca4b5fd6f5ac90da/svg/IN.svg`;
       }
       return `https://raw.githubusercontent.com/emcrisostomo/flags/91286fe015b4957b51bc470eca4b5fd6f5ac90da/svg/${nomebandiera.toUpperCase()}.svg`;
+    },
+    bandieraNonTrovata(error) {
+      error.target.src =
+        "https://aeroclub-issoire.fr/wp-content/uploads/2020/05/image-not-found-300x225.jpg";
     },
   },
 };
