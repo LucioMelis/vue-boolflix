@@ -18,7 +18,10 @@
         @error="bandieraNonTrovata"
       />
     </p>
-    <p>Voto: {{ votoIntero }} <font-awesome-icon icon="fa-solid fa-star" /></p>
+    <p>
+      Voto: {{ votoIntero() }}
+      <font-awesome-icon icon="fa-solid fa-star" />
+    </p>
   </div>
 </template>
 
@@ -36,12 +39,6 @@ export default {
     lingua: String,
     voto: Number,
     poster: String,
-  },
-  computed: {
-    votoIntero() {
-      this.votoDefinitivo = Math.ceil(this.voto / 2);
-      return this.votoDefinitivo;
-    },
   },
   methods: {
     ricercaPoster(img) {
@@ -68,6 +65,10 @@ export default {
     bandieraNonTrovata(error) {
       error.target.src =
         "https://aeroclub-issoire.fr/wp-content/uploads/2020/05/image-not-found-300x225.jpg";
+    },
+    votoIntero() {
+      this.votoDefinitivo = Math.ceil(this.voto / 2);
+      return this.votoDefinitivo;
     },
   },
 };
