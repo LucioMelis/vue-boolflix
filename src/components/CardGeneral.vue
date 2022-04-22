@@ -25,6 +25,11 @@
 <script>
 export default {
   name: "CardGeneral",
+  data() {
+    return {
+      votoDefinitivo: -1,
+    };
+  },
   props: {
     titolo: String,
     titoloOriginale: String,
@@ -34,8 +39,8 @@ export default {
   },
   computed: {
     votoIntero() {
-      let votoDefinitivo = Math.ceil(this.voto / 2);
-      return votoDefinitivo;
+      this.votoDefinitivo = Math.ceil(this.voto / 2);
+      return this.votoDefinitivo;
     },
   },
   methods: {
