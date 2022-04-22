@@ -20,7 +20,11 @@
     </p>
     <p>
       Voto: {{ votoIntero }}
-      <font-awesome-icon icon="fa-solid fa-star" />
+      <font-awesome-icon
+        v-for="(stella, index) in 5"
+        :key="index"
+        :icon="[inserisciStella(index), 'fa-star']"
+      />
     </p>
   </div>
 </template>
@@ -65,6 +69,12 @@ export default {
     bandieraNonTrovata(error) {
       error.target.src =
         "https://aeroclub-issoire.fr/wp-content/uploads/2020/05/image-not-found-300x225.jpg";
+    },
+    inserisciStella(indice) {
+      if (this.votoIntero <= indice) {
+        return "fa-regular";
+      }
+      return "fa-solid";
     },
   },
 };
