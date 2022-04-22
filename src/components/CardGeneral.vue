@@ -18,7 +18,7 @@
         @error="bandieraNonTrovata"
       />
     </p>
-    <p>Voto: {{ voto }}</p>
+    <p>Voto: {{ votoIntero }} <font-awesome-icon icon="fa-solid fa-star" /></p>
   </div>
 </template>
 
@@ -31,6 +31,12 @@ export default {
     lingua: String,
     voto: Number,
     poster: String,
+  },
+  computed: {
+    votoIntero() {
+      let votoProva = Math.ceil(this.voto / 2);
+      return votoProva;
+    },
   },
   methods: {
     ricercaPoster(img) {
@@ -69,5 +75,8 @@ p > img {
 .poster {
   width: 100%;
   aspect-ratio: 2/3;
+}
+.fa-star {
+  color: orange;
 }
 </style>
