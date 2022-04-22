@@ -9,9 +9,9 @@
           type="text"
           placeholder="Ricerca Film-Serie Tv"
           v-model="ricercaUtente"
-          @keyup.enter="$emit('ricercaInserita', ricercaUtente)"
+          @keyup.enter="emitInput"
         />
-        <button @click="$emit('ricercaInserita', ricercaUtente)">Cerca</button>
+        <button @click="emitInput">Cerca</button>
       </div>
     </div>
   </header>
@@ -24,6 +24,12 @@ export default {
     return {
       ricercaUtente: "",
     };
+  },
+  methods: {
+    emitInput() {
+      this.$emit("ricercaInserita", this.ricercaUtente);
+      this.ricercaUtente = "";
+    },
   },
 };
 </script>

@@ -19,7 +19,7 @@
       />
     </p>
     <p>
-      Voto: {{ votoIntero() }}
+      Voto: {{ votoIntero }}
       <font-awesome-icon icon="fa-solid fa-star" />
     </p>
   </div>
@@ -28,17 +28,17 @@
 <script>
 export default {
   name: "CardGeneral",
-  data() {
-    return {
-      votoDefinitivo: -1,
-    };
-  },
   props: {
     titolo: String,
     titoloOriginale: String,
     lingua: String,
     voto: Number,
     poster: String,
+  },
+  computed: {
+    votoIntero() {
+      return Math.ceil(this.voto / 2);
+    },
   },
   methods: {
     ricercaPoster(img) {
@@ -65,10 +65,6 @@ export default {
     bandieraNonTrovata(error) {
       error.target.src =
         "https://aeroclub-issoire.fr/wp-content/uploads/2020/05/image-not-found-300x225.jpg";
-    },
-    votoIntero() {
-      this.votoDefinitivo = Math.ceil(this.voto / 2);
-      return this.votoDefinitivo;
     },
   },
 };
