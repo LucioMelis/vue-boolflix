@@ -34,8 +34,8 @@ export default {
   },
   computed: {
     votoIntero() {
-      let votoProva = Math.ceil(this.voto / 2);
-      return votoProva;
+      let votoDefinitivo = Math.ceil(this.voto / 2);
+      return votoDefinitivo;
     },
   },
   methods: {
