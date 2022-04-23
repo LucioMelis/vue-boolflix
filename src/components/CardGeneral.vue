@@ -1,6 +1,6 @@
 <template>
-  <div class="content-card">
-    <div>
+  <div class="content-card" @mouseover="over" @mouseleave="leave">
+    <div class="container-img" v-if="!active">
       <img
         class="poster"
         :src="ricercaPoster(poster)"
@@ -8,36 +8,50 @@
         @error="imgNonTrovata"
       />
     </div>
-    <h2>{{ titolo }}</h2>
-    <p>Titolo originale: {{ titoloOriginale }}</p>
-    <p>
-      Lingua:
-      <img
-        :src="ricercaBandiera(lingua)"
-        :alt="lingua"
-        @error="bandieraNonTrovata"
-      />
-    </p>
-    <p>
-      Voto: {{ votoIntero }}
-      <font-awesome-icon
-        v-for="(stella, index) in 5"
-        :key="index"
-        :icon="[inserisciStella(index), 'fa-star']"
-      />
-    </p>
+    <div class="container-info" v-else>
+      <h2>{{ titolo }}</h2>
+      <p>
+        Titolo originale: <span>{{ titoloOriginale }}</span>
+      </p>
+      <p>
+        Lingua:
+        <img
+          :src="ricercaBandiera(lingua)"
+          :alt="lingua"
+          @error="bandieraNonTrovata"
+        />
+      </p>
+      <p>
+        Voto: <span>{{ votoIntero }}</span>
+        <font-awesome-icon
+          v-for="(stella, index) in 5"
+          :key="index"
+          :icon="[inserisciStella(index), 'fa-star']"
+        />
+      </p>
+      <p>
+        Trama:
+        <span class="info">{{ info }}</span>
+      </p>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   name: "CardGeneral",
+  data() {
+    return {
+      active: false,
+    };
+  },
   props: {
     titolo: String,
     titoloOriginale: String,
     lingua: String,
     voto: Number,
     poster: String,
+    info: String,
   },
   computed: {
     votoIntero() {
@@ -45,6 +59,12 @@ export default {
     },
   },
   methods: {
+    over() {
+      this.active = true;
+    },
+    leave() {
+      this.active = false;
+    },
     ricercaPoster(img) {
       return `https://image.tmdb.org/t/p/original/${img}`;
     },
@@ -81,14 +101,32 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-p > img {
-  width: 20px;
-}
-.poster {
+.container-img {
   width: 100%;
-  aspect-ratio: 2/3;
+  .poster {
+    width: 100%;
+    aspect-ratio: 2/3;
+  }
 }
-.fa-star {
-  color: orange;
+.container-info {
+  height: 100%;
+  background-color: black;
+  p > img {
+    width: 20px;
+  }
+  .fa-star {
+    color: orange;
+  }
+  p {
+    font-weight: bold;
+    font-size: 15px;
+    span {
+      font-size: 13px;
+      font-weight: normal;
+    }
+    .info {
+      display: block;
+    }
+  }
 }
 </style>

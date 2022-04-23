@@ -30,8 +30,10 @@ body {
         aspect-ratio: 2/3;
 
         .content-card {
+            height: 100%;
             padding: 10px;
             color: white;
+            overflow-y: auto;
         }
     }
 }

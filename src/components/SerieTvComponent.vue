@@ -7,6 +7,7 @@
         :lingua="singoleSerie.original_language"
         :voto="singoleSerie.vote_average"
         :poster="singoleSerie.poster_path"
+        :info="singoleSerie.overview"
       />
     </div>
   </div>

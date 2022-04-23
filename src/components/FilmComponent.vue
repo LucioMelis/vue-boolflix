@@ -7,6 +7,7 @@
         :lingua="singoliFilm.original_language"
         :voto="singoliFilm.vote_average"
         :poster="singoliFilm.poster_path"
+        :info="singoliFilm.overview"
       />
     </div>
   </div>
