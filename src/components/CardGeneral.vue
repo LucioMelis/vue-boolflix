@@ -11,7 +11,7 @@
     <div class="container-info" v-else>
       <h2>{{ titolo }}</h2>
       <p>
-        Titolo originale: <span>{{ titoloOriginale }}</span>
+        Titolo originale: <span class="block">{{ titoloOriginale }}</span>
       </p>
       <p>
         Lingua:
@@ -110,7 +110,9 @@ export default {
 }
 .container-info {
   height: 100%;
-  background-color: black;
+  padding-left: 8px;
+  padding-top: 5px;
+  border-radius: 10px;
   p > img {
     width: 20px;
   }
@@ -124,7 +126,7 @@ export default {
       font-size: 13px;
       font-weight: normal;
     }
-    .info {
+    .block {
       display: block;
     }
   }
