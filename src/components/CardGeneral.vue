@@ -179,6 +179,7 @@ export default {
   border-radius: 10px;
   h2 {
     text-transform: uppercase;
+    padding-bottom: 10px;
   }
   p > img {
     width: 20px;
@@ -189,9 +190,11 @@ export default {
   p {
     font-weight: bold;
     font-size: 15px;
+    padding-bottom: 3px;
     span {
       font-size: 13px;
       font-weight: normal;
+      color: rgb(167, 167, 167);
     }
     .block {
       display: block;
