@@ -177,6 +177,9 @@ export default {
   padding-left: 8px;
   padding-top: 5px;
   border-radius: 10px;
+  h2 {
+    text-transform: uppercase;
+  }
   p > img {
     width: 20px;
   }
