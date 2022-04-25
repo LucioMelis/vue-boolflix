@@ -42,16 +42,26 @@
         Trama:
         <span class="block">{{ info }}</span>
       </p>
+      <p :class="chiamataApiAttori()">
+        Cast:
+        <!-- <span v-for="(attori, index) in arrayAttori" :key="index" class="block">
+          {{ attori.name }}
+        </span> -->
+      </p>
     </div>
   </div>
 </template>
 
 <script>
+import axios from "axios";
+import { apiKey } from "@/api";
+
 export default {
   name: "CardGeneral",
   data() {
     return {
       active: false,
+      arrayAttori: [],
     };
   },
   props: {
@@ -70,6 +80,26 @@ export default {
     },
   },
   methods: {
+    chiamataApiAttori() {
+      const params = {
+        api_key: apiKey,
+        language: "it-IT",
+      };
+      // *********** chiamata Attori **********
+      // https://api.themoviedb.org/3/movie/{movie_id}/credits?api_key=<<api_key>>&language=en-US
+      axios
+        .get(`https://api.themoviedb.org/3/${this.tipo}/${this.id}/credits`, {
+          params,
+        })
+        .then((response) => {
+          // console.log(response.data.cast);
+          this.arrayAttori = response.data.cast.slice(0, 5);
+          console.log(this.arrayAttori);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
     cambioValoreOver() {
       this.active = true;
     },
