@@ -39,17 +39,17 @@
           :icon="[inserisciStella(index), 'fa-star']"
         />
       </p>
-      <!-- sezione overview info  -->
-      <p>
-        Trama:
-        <span class="block">{{ info }}</span>
-      </p>
       <!-- sezione attori/cast  -->
       <p class="actors">
         Cast:
         <span v-for="(attori, index) in arrayAttori" :key="index" class="block">
           {{ attori.name }}
         </span>
+      </p>
+      <!-- sezione overview info  -->
+      <p>
+        Trama:
+        <span class="block">{{ info }}</span>
       </p>
     </div>
   </div>
