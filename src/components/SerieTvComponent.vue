@@ -8,6 +8,8 @@
         :voto="singoleSerie.vote_average"
         :poster="singoleSerie.poster_path"
         :info="singoleSerie.overview"
+        :id="singoleSerie.id"
+        :tipo="'tv'"
       />
     </div>
   </div>

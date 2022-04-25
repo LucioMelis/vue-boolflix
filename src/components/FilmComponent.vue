@@ -12,6 +12,8 @@
         :voto="singoliFilm.vote_average"
         :poster="singoliFilm.poster_path"
         :info="singoliFilm.overview"
+        :id="singoliFilm.id"
+        :tipo="'movie'"
       />
     </div>
   </div>

@@ -39,6 +39,7 @@ main {
       text-align: center;
       background-color: black;
       border-radius: 10px;
+      border: 0.8px solid rgb(235, 26, 26);
     }
   }
 }

@@ -61,6 +61,8 @@ export default {
     voto: Number,
     poster: String,
     info: String,
+    tipo: String,
+    id: Number,
   },
   computed: {
     votoIntero() {
