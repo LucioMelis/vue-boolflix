@@ -14,6 +14,27 @@ body {
     background-blend-mode: multiply;
 }
 
+////////// ScrollBar ////////////
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: red;
+    border-radius: 90px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: grey;
+}
+
 .container-components {
     width: 90%;
     margin: auto;
@@ -29,11 +50,59 @@ body {
         border: 1px solid white;
         aspect-ratio: 2/3;
 
+        &:hover {
+            border: 1px solid red;
+        }
+
         .content-card {
             height: 100%;
             padding: 10px;
             color: white;
             overflow-y: auto;
         }
+    }
+}
+
+// Transition & Animation 
+.slit-in-vertical {
+    -webkit-animation: slit-in-vertical 0.70s ease-out both;
+    animation: slit-in-vertical 0.90s ease-out both;
+}
+
+@-webkit-keyframes slit-in-vertical {
+    0% {
+        -webkit-transform: translateZ(-800px) rotateY(90deg);
+        transform: translateZ(-800px) rotateY(90deg);
+        opacity: 0;
+    }
+
+    54% {
+        -webkit-transform: translateZ(-160px) rotateY(87deg);
+        transform: translateZ(-160px) rotateY(87deg);
+        opacity: 1;
+    }
+
+    100% {
+        -webkit-transform: translateZ(0) rotateY(0);
+        transform: translateZ(0) rotateY(0);
+    }
+}
+
+@keyframes slit-in-vertical {
+    0% {
+        -webkit-transform: translateZ(-800px) rotateY(90deg);
+        transform: translateZ(-800px) rotateY(90deg);
+        opacity: 0;
+    }
+
+    54% {
+        -webkit-transform: translateZ(-160px) rotateY(87deg);
+        transform: translateZ(-160px) rotateY(87deg);
+        opacity: 1;
+    }
+
+    100% {
+        -webkit-transform: translateZ(0) rotateY(0);
+        transform: translateZ(0) rotateY(0);
     }
 }

@@ -1,6 +1,10 @@
 <template>
   <div class="container-components">
-    <div class="card" v-for="singoliFilm in film" :key="singoliFilm.id">
+    <div
+      class="card slit-in-vertical"
+      v-for="singoliFilm in film"
+      :key="singoliFilm.id"
+    >
       <CardGeneral
         :titolo="singoliFilm.title"
         :titoloOriginale="singoliFilm.original_title"

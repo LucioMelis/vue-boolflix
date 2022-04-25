@@ -1,4 +1,5 @@
 <template>
+  <!-- Contenitore immagine  -->
   <div class="content-card" @mouseover="over" @mouseleave="leave">
     <div class="container-img" v-if="!active">
       <img
@@ -8,12 +9,16 @@
         @error="imgNonTrovata"
       />
     </div>
+    <!-- Contenitore Info  -->
     <div class="container-info" v-else>
+      <!-- titolo  -->
       <h2>{{ titolo }}</h2>
+      <!-- titolo originale  -->
       <p>
         Titolo originale: <span class="block">{{ titoloOriginale }}</span>
       </p>
       <p>
+        <!-- lingua  -->
         Lingua:
         <img
           :src="ricercaBandiera(lingua)"
@@ -31,7 +36,7 @@
       </p>
       <p>
         Trama:
-        <span class="info">{{ info }}</span>
+        <span class="block">{{ info }}</span>
       </p>
     </div>
   </div>
