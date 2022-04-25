@@ -1,6 +1,10 @@
 <template>
   <!-- Contenitore immagine  -->
-  <div class="content-card" @mouseover="over" @mouseleave="leave">
+  <div
+    class="content-card"
+    @mouseover="cambioValoreOver"
+    @mouseleave="cambioValoreLeave"
+  >
     <div class="container-img" v-if="!active">
       <img
         class="poster"
@@ -64,10 +68,10 @@ export default {
     },
   },
   methods: {
-    over() {
+    cambioValoreOver() {
       this.active = true;
     },
-    leave() {
+    cambioValoreLeave() {
       this.active = false;
     },
     ricercaPoster(img) {

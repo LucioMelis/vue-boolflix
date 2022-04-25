@@ -50,10 +50,11 @@ export default {
     }
   }
   .container-input {
-    border: 2px solid red;
+    border: 1px solid red;
     padding: 5px;
     input {
-      padding: 5px 10px;
+      padding: 4px 10px;
+      border-radius: 5px;
     }
     button {
       margin-left: 5px;
@@ -62,6 +63,14 @@ export default {
       background-color: red;
       font-weight: bold;
       color: white;
+      border: none;
+      &:hover {
+        outline: 1px solid red;
+        outline-offset: 2px;
+      }
+      &:active {
+        background-color: rgb(169, 16, 16);
+      }
     }
   }
 }

@@ -14,27 +14,6 @@ body {
     background-blend-mode: multiply;
 }
 
-////////// ScrollBar ////////////
-::-webkit-scrollbar {
-    width: 5px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.5);
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-    background: red;
-    border-radius: 90px;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-    background: grey;
-}
-
 .container-components {
     width: 90%;
     margin: auto;
@@ -105,4 +84,25 @@ body {
         -webkit-transform: translateZ(0) rotateY(0);
         transform: translateZ(0) rotateY(0);
     }
+}
+
+////////// ScrollBar ////////////
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: red;
+    border-radius: 90px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: grey;
 }
