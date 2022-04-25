@@ -1,5 +1,5 @@
 <template>
-  <!-- Contenitore immagine  -->
+  <!-- ************* Contenitore immagine **********-->
   <div
     class="content-card"
     @mouseover="cambioValoreOver"
@@ -13,16 +13,16 @@
         @error="imgNonTrovata"
       />
     </div>
-    <!-- Contenitore Info  -->
+    <!-- ************* Contenitore Info ********** -->
     <div class="container-info" v-else>
-      <!-- titolo  -->
+      <!-- sezione titolo  -->
       <h2>{{ titolo }}</h2>
-      <!-- titolo originale  -->
+      <!-- sezione titolo originale  -->
       <p>
         Titolo originale: <span class="block">{{ titoloOriginale }}</span>
       </p>
+      <!-- sezione lingua  -->
       <p>
-        <!-- lingua  -->
         Lingua:
         <img
           :src="ricercaBandiera(lingua)"
@@ -30,6 +30,7 @@
           @error="bandieraNonTrovata"
         />
       </p>
+      <!-- sezione voto  -->
       <p>
         Voto: <span>{{ votoIntero }}</span>
         <font-awesome-icon
@@ -38,15 +39,17 @@
           :icon="[inserisciStella(index), 'fa-star']"
         />
       </p>
+      <!-- sezione overview info  -->
       <p>
         Trama:
         <span class="block">{{ info }}</span>
       </p>
-      <p :class="chiamataApiAttori()">
+      <!-- sezione attori/cast  -->
+      <p class="actors">
         Cast:
-        <!-- <span v-for="(attori, index) in arrayAttori" :key="index" class="block">
+        <span v-for="(attori, index) in arrayAttori" :key="index" class="block">
           {{ attori.name }}
-        </span> -->
+        </span>
       </p>
     </div>
   </div>
@@ -79,27 +82,47 @@ export default {
       return Math.ceil(this.voto / 2);
     },
   },
+  created() {
+    const params = {
+      api_key: apiKey,
+      language: "it-IT",
+    };
+    // *********** chiamata Attori **********
+    // https://api.themoviedb.org/3/movie/{movie_id}/credits?api_key=<<api_key>>&language=en-US
+    axios
+      .get(`https://api.themoviedb.org/3/${this.tipo}/${this.id}/credits`, {
+        params,
+      })
+      .then((response) => {
+        // console.log(response.data.cast);
+        this.arrayAttori = response.data.cast.slice(0, 5);
+        console.log(this.arrayAttori);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  },
   methods: {
-    chiamataApiAttori() {
-      const params = {
-        api_key: apiKey,
-        language: "it-IT",
-      };
-      // *********** chiamata Attori **********
-      // https://api.themoviedb.org/3/movie/{movie_id}/credits?api_key=<<api_key>>&language=en-US
-      axios
-        .get(`https://api.themoviedb.org/3/${this.tipo}/${this.id}/credits`, {
-          params,
-        })
-        .then((response) => {
-          console.log(response.data.cast);
-          this.arrayAttori = response.data.cast.slice(0, 5);
-          console.log(this.arrayAttori);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    },
+    // chiamataApiAttori() {
+    //   const params = {
+    //     api_key: apiKey,
+    //     language: "it-IT",
+    //   };
+    //   // *********** chiamata Attori **********
+    //   // https://api.themoviedb.org/3/movie/{movie_id}/credits?api_key=<<api_key>>&language=en-US
+    //   axios
+    //     .get(`https://api.themoviedb.org/3/${this.tipo}/${this.id}/credits`, {
+    //       params,
+    //     })
+    //     .then((response) => {
+    //       console.log(response.data.cast);
+    //       this.arrayAttori = response.data.cast.slice(0, 5);
+    //       console.log(this.arrayAttori);
+    //     })
+    //     .catch((error) => {
+    //       console.log(error);
+    //     });
+    // },
     cambioValoreOver() {
       this.active = true;
     },
@@ -170,6 +193,9 @@ export default {
     .block {
       display: block;
     }
+  }
+  .actors {
+    padding-bottom: 5px;
   }
 }
 </style>
