@@ -92,7 +92,7 @@ export default {
           params,
         })
         .then((response) => {
-          // console.log(response.data.cast);
+          console.log(response.data.cast);
           this.arrayAttori = response.data.cast.slice(0, 5);
           console.log(this.arrayAttori);
         })
